@@ -1,0 +1,148 @@
+province + date input user
+
+province => province_region_mapping + onehotencoder >>> 41
+date => df['date'] = pd.to_datetime(df['date'])
+df['year'] = df['date'].dt.year
+df['month'] = df['date'].dt.month
+df['day'] = df['date'].dt.day
+df['day_of_week'] = df['date'].dt.day_name()
+df['week_of_year'] = df['date'].dt.isocalendar().week
+df['year_quarter'] = df['date'].dt.to_period('Q').astype(int)
+df['month_period'] = df['date'].dt.to_period('M').astype(int)
+
+
+rain > 0 true false
+
+from sklearn.linear_model import LogisticRegression
+
+# Khởi tạo và huấn luyện mô hình Logistic Regression
+model = LogisticRegression(random_state=42)
+model.fit(X_train, y_train)
+
+# Dự đoán trên tập kiểm tra
+y_pred = model.predict(X_test)
+
+# Tính toán độ chính xác
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Logistic Regression Accuracy: {accuracy * 100:.2f}%')
+
+# Lưu mô hình vào file .pkl
+with open('logistic_model.pkl', 'wb') as file:
+    pickle.dump(model, file)
+print("Mô hình Logistic Regression đã được lưu vào file 'logistic_model.pkl'")
+
+
+from sklearn.neighbors import KNeighborsClassifier
+
+# Khởi tạo và huấn luyện mô hình K-Nearest Neighbors
+model = KNeighborsClassifier(n_neighbors=5)
+model.fit(X_train, y_train)
+
+# Dự đoán trên tập kiểm tra
+y_pred = model.predict(X_test)
+
+# Tính toán độ chính xác
+accuracy = accuracy_score(y_test, y_pred)
+print(f'KNN Accuracy: {accuracy * 100:.2f}%')
+
+# Lưu mô hình vào file .pkl
+with open('knn_model.pkl', 'wb') as file:
+    pickle.dump(model, file)
+print("Mô hình KNN đã được lưu vào file 'knn_model.pkl'")
+
+
+from sklearn.svm import SVC
+
+# Khởi tạo và huấn luyện mô hình SVM
+model = SVC(kernel='linear', random_state=42)
+model.fit(X_train, y_train)
+
+# Dự đoán trên tập kiểm tra
+y_pred = model.predict(X_test)
+
+# Tính toán độ chính xác
+accuracy = accuracy_score(y_test, y_pred)
+print(f'SVM Accuracy: {accuracy * 100:.2f}%')
+
+# Lưu mô hình vào file .pkl
+with open('svm_model.pkl', 'wb') as file:
+    pickle.dump(model, file)
+print("Mô hình SVM đã được lưu vào file 'svm_model.pkl'")
+
+
+from sklearn.tree import DecisionTreeClassifier
+
+# Khởi tạo và huấn luyện mô hình Decision Tree
+model = DecisionTreeClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# Dự đoán trên tập kiểm tra
+y_pred = model.predict(X_test)
+
+# Tính toán độ chính xác
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Decision Tree Accuracy: {accuracy * 100:.2f}%')
+
+# Lưu mô hình vào file .pkl
+with open('decision_tree_model.pkl', 'wb') as file:
+    pickle.dump(model, file)
+print("Mô hình Decision Tree đã được lưu vào file 'decision_tree_model.pkl'")
+
+
+from sklearn.naive_bayes import GaussianNB
+
+# Khởi tạo và huấn luyện mô hình Naive Bayes
+model = GaussianNB()
+model.fit(X_train, y_train)
+
+# Dự đoán trên tập kiểm tra
+y_pred = model.predict(X_test)
+
+# Tính toán độ chính xác
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Naive Bayes Accuracy: {accuracy * 100:.2f}%')
+
+# Lưu mô hình vào file .pkl
+with open('naive_bayes_model.pkl', 'wb') as file:
+    pickle.dump(model, file)
+print("Mô hình Naive Bayes đã được lưu vào file 'naive_bayes_model.pkl'")
+
+from sklearn.ensemble import GradientBoostingClassifier
+
+# Khởi tạo và huấn luyện mô hình Gradient Boosting
+model = GradientBoostingClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# Dự đoán trên tập kiểm tra
+y_pred = model.predict(X_test)
+
+# Tính toán độ chính xác
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Gradient Boosting Accuracy: {accuracy * 100:.2f}%')
+
+# Lưu mô hình vào file .pkl
+with open('gradient_boosting_model.pkl', 'wb') as file:
+    pickle.dump(model, file)
+print("Mô hình Gradient Boosting đã được lưu vào file 'gradient_boosting_model.pkl'")
+
+from xgboost import XGBClassifier
+
+# Khởi tạo và huấn luyện mô hình XGBoost
+model = XGBClassifier(random_state=42, use_label_encoder=False, eval_metric='mlogloss')
+model.fit(X_train, y_train)
+
+# Dự đoán trên tập kiểm tra
+y_pred = model.predict(X_test)
+
+# Tính toán độ chính xác
+accuracy = accuracy_score(y_test, y_pred)
+print(f'XGBoost Accuracy: {accuracy * 100:.2f}%')
+
+# Lưu mô hình vào file .pkl
+with open('xgboost_model.pkl', 'wb') as file:
+    pickle.dump(model, file)
+print("Mô hình XGBoost đã được lưu vào file 'xgboost_model.pkl'")
+
+province : Dalat sg hn dn  
+scaler: 1 2 3 4 
+onehot: Dalat sg hn dn: 1 0 0 0,  Dalat sg hn dn: 0 1 0 0 

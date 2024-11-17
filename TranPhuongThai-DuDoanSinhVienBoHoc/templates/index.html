@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dự đoán xác suất bỏ học</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <h2>Dự đoán xác suất bỏ học của sinh viên</h2>
+  <div class="container">  <form action="/predict" method="post">
+       
+    <label>Tình trạng hôn nhân:</label>
+    <select name="marital_status" required>
+        <option value="1">Độc thân</option>
+        <option value="2">Đã kết hôn</option>
+        
+    </select><br>
+
+    <label>Hình thức nộp đơn:</label>
+    <select name="application_mode" required>
+        <option value="1">Trực tiếp</option>
+        <option value="2">Trực tuyến</option>
+        <option value="3">Qua điện thoại</option>
+        <option value="4">Qua đại diện</option>
+        <option value="5">Qua bưu điện</option>
+        <option value="6">Qua trung gian</option>
+        <option value="7">Qua hội chợ</option>
+        <option value="8">Qua ngày hội tuyển sinh</option>
+        <option value="9">Qua email</option>
+        <option value="10">Chuyển trường</option>
+        <option value="11">Đề xuất từ giáo viên</option>
+        <option value="12">Đề xuất từ sinh viên</option>
+        <option value="13">Tiếp thị qua mạng xã hội</option>
+        <option value="14">Website trường</option>
+        <option value="15">Quảng cáo truyền hình</option>
+        <option value="16">Quảng cáo radio</option>
+        <option value="17">Quảng cáo báo</option>
+        <option value="18">Quảng cáo trực tuyến</option>
+        <option value="19">Tư vấn hướng nghiệp</option>
+        <option value="20">Khác</option>
+    </select><br>
+
+    <label>Thứ tự nộp đơn:</label>
+    <select name="application_order" required>
+        <option value="1">Đầu tiên</option>
+        <option value="2">Thứ hai</option>
+        <option value="2">Thứ ba</option>
+        <option value="2">Thứ tư</option>
+        <option value="2">Thứ năm</option>
+    </select><br>
+
+    <label>Ngành học:</label>
+    <select name="course" required>
+        <option value="1">Công nghệ thông tin</option>
+        <option value="2">Kỹ thuật điện</option>
+        <option value="3">Kinh tế</option>
+        <option value="4">Quản trị kinh doanh</option>
+        <option value="5">Ngôn ngữ Anh</option>
+        <option value="6">Y học</option>
+        <option value="7">Luật</option>
+        <option value="8">Kiến trúc</option>
+        <option value="9">Sinh học</option>
+        <option value="10">Hóa học</option>
+        <option value="11">Vật lý</option>
+        <option value="12">Xã hội học</option>
+        <option value="13">Tâm lý học</option>
+        <option value="14">Giáo dục học</option>
+        <option value="15">Lịch sử</option>
+        <option value="16">Địa lý</option>
+        <option value="17">Toán học</option>
+        <option value="18">Nhân học</option>
+        <option value="19">Nông nghiệp</option>
+        <option value="20">Quản lý tài nguyên</option>
+    </select><br>
+
+    <label>Ca học:</label>
+    <select name="daytime_evening_attendance" required>
+        <option value="1">Ban ngày</option>
+        <option value="2">Ban đêm</option>
+    </select><br>
+
+    <label>Trình độ học vấn trước đây:</label>
+    <select name="previous_qualification" required>
+        <option value="1">Tiểu học</option>
+        <option value="2">Trung học cơ sở</option>
+        <option value="3">Trung học phổ thông</option>
+        <option value="4">Trung cấp nghề</option>
+        <option value="5">Cao đẳng</option>
+        <option value="6">Đại học</option>
+        <option value="7">Thạc sĩ</option>
+        <option value="8">Tiến sĩ</option>
+        <option value="9">Chứng chỉ quốc tế</option>
+        <option value="10">Chứng chỉ nghề</option>
+        <option value="11">Khóa đào tạo ngắn hạn</option>
+        <option value="12">Chứng chỉ chuyên môn</option>
+        <option value="13">Chương trình thực tập</option>
+        <option value="14">Giáo dục đặc biệt</option>
+        <option value="15">Khóa học trực tuyến</option>
+        <option value="16">Giáo dục từ xa</option>
+        <option value="17">Chuyển tiếp</option>
+        <option value="18">Tự học</option>
+        <option value="19">Khác</option>
+        <option value="20">Không có</option>
+    </select><br>
+
+    <label>Trình độ học vấn của mẹ:</label>
+    <select name="mother_qualification" required>
+        <option value="1">Tiểu học</option>
+        <option value="2">Trung học cơ sở</option>
+        <option value="3">Trung học phổ thông</option>
+        <option value="4">Trung cấp nghề</option>
+        <option value="5">Cao đẳng</option>
+        <option value="6">Đại học</option>
+        <option value="7">Thạc sĩ</option>
+        <option value="8">Tiến sĩ</option>
+        <option value="9">Không có</option>
+        <option value="10">Khác</option>
+    </select><br>
+
+    <label>Trình độ học vấn của cha:</label>
+    <select name="father_qualification" required>
+        <option value="1">Tiểu học</option>
+        <option value="2">Trung học cơ sở</option>
+        <option value="3">Trung học phổ thông</option>
+        <option value="4">Trung cấp nghề</option>
+        <option value="5">Cao đẳng</option>
+        <option value="6">Đại học</option>
+        <option value="7">Thạc sĩ</option>
+        <option value="8">Tiến sĩ</option>
+        <option value="9">Không có</option>
+        <option value="10">Khác</option>
+    </select><br>
+
+    <label>Nghề nghiệp của mẹ:</label>
+    <select name="mother_occupation" required>
+        <option value="1">Giáo viên</option>
+        <option value="2">Bác sĩ</option>
+        <option value="3">Kế toán</option>
+        <option value="4">Nhân viên văn phòng</option>
+        <option value="5">Công nhân</option>
+        <option value="6">Nội trợ</option>
+        <option value="7">Nông dân</option>
+        <option value="8">Tự doanh</option>
+        <option value="9">Luật sư</option>
+        <option value="10">Kỹ sư</option>
+    </select><br>
+
+    <label>Nghề nghiệp của cha:</label>
+    <select name="father_occupation" required>
+        <option value="1">Giáo viên</option>
+        <option value="2">Bác sĩ</option>
+        <option value="3">Kế toán</option>
+        <option value="4">Nhân viên văn phòng</option>
+        <option value="5">Công nhân</option>
+        <option value="6">Doanh nhân</option>
+        <option value="7">Nông dân</option>
+        <option value="8">Tự doanh</option>
+        <option value="9">Luật sư</option>
+        <option value="10">Kỹ sư</option>
+    </select><br>
+
+    <label>Di dân:</label>
+    <select name="displaced" required>
+        <option value="1">Có</option>
+        <option value="0">Không</option>
+    </select><br>
+
+    <label>Có nợ:</label>
+    <select name="debtor" required>
+        <option value="1">Có</option>
+        <option value="0">Không</option>
+    </select><br>
+
+    <label>Đóng học phí đầy đủ:</label>
+    <select name="tuition_fees_up_to_date" required>
+        <option value="1">Có</option>
+        <option value="0">Không</option>
+    </select><br>
+
+    <label>Giới tính:</label>
+    <select name="gender" required>
+        <option value="1">Nam</option>
+        <option value="2">Nữ</option>
+    </select><br>
+
+    <label>Nhận học bổng:</label>
+    <select name="scholarship_holder" required>
+        <option value="1">Có</option>
+        <option value="0">Không</option>
+    </select><br>
+
+    <label>Tuổi:</label><input type="number" name="age" required><br>
+
+    <h3>Dữ liệu học kỳ trung bình</h3>
+    <label>trung bình môn đăng ký:</label><input type="number" step="0.01" name="avg_enrolled" required><br>
+    <label>trung bình môn đã hoàn thành: </label><input type="number" step="0.01" name="avg_approved" required><br>
+    <label>Điểm trung bình:</label><input type="number" step="0.01" name="avg_grade" required><br>
+    <label>Môn học không có đánh giá trung bình:</label><input type="number" step="0.01" name="avg_without_evaluations" required><br>
+
+    <h3>Tổng quan</h3>
+    <label>GDP:</label><input type="number" step="0.01" name="gdp" required><br>
+
+    <button type="submit">Dự đoán</button>
+</form></div>
+
+  
+</body>
+</html>
+
+
+
+
+

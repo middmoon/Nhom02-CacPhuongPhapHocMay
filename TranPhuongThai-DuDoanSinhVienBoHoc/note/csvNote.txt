@@ -1,0 +1,35 @@
+Marital status: Tình trạng hôn nhân của sinh viên (1: Độc thân, 2: Đã kết hôn, ...)
+Application mode: Cách thức nộp đơn (dựa trên mã ứng dụng hoặc phương thức nhập học).
+Application order: Thứ tự nguyện vọng nhập học (số lần sinh viên nộp đơn).
+Course: Khóa học mà sinh viên đăng ký.
+Daytime/evening attendance: Loại hình học (1: Ban ngày, 2: Buổi tối).
+Previous qualification: Trình độ học vấn trước đó của sinh viên.
+Nationality: Quốc tịch của sinh viên.
+Mother's qualification: Trình độ học vấn của mẹ.
+Father's qualification: Trình độ học vấn của cha.
+Mother's occupation: Nghề nghiệp của mẹ.
+Father's occupation: Nghề nghiệp của cha.
+Displaced: Sinh viên có bị di dời khỏi khu vực cư trú không (1: Có, 0: Không).
+Educational special needs: Sinh viên có nhu cầu giáo dục đặc biệt không (1: Có, 0: Không).
+Debtor: Sinh viên có khoản nợ chưa thanh toán không (1: Có, 0: Không).
+Tuition fees up to date: Tình trạng đóng học phí (1: Đã đóng, 0: Chưa đóng).
+Gender: Giới tính của sinh viên (1: Nam, 0: Nữ).
+Scholarship holder: Sinh viên có nhận học bổng không (1: Có, 0: Không).
+Age at enrollment: Tuổi của sinh viên khi ghi danh.
+International: Sinh viên có phải là du học sinh không (1: Có, 0: Không).
+Curricular units 1st sem (credited): Số tín chỉ đạt được trong học kỳ 1.
+Curricular units 1st sem (enrolled): Số môn đăng ký trong học kỳ 1.
+Curricular units 1st sem (evaluations): Số môn đã được đánh giá trong học kỳ 1.
+Curricular units 1st sem (approved): Số môn đã hoàn thành (đạt yêu cầu) trong học kỳ 1.
+Curricular units 1st sem (grade): Điểm trung bình trong học kỳ 1.
+Curricular units 1st sem (without evaluations): Số môn không có đánh giá trong học kỳ 1.
+Curricular units 2nd sem (credited): Số tín chỉ đạt được trong học kỳ 2.
+Curricular units 2nd sem (enrolled): Số môn đăng ký trong học kỳ 2.
+Curricular units 2nd sem (evaluations): Số môn đã được đánh giá trong học kỳ 2.
+Curricular units 2nd sem (approved): Số môn đã hoàn thành (đạt yêu cầu) trong học kỳ 2.
+Curricular units 2nd sem (grade): Điểm trung bình trong học kỳ 2.
+Curricular units 2nd sem (without evaluations): Số môn không có đánh giá trong học kỳ 2.
+Unemployment rate: Tỷ lệ thất nghiệp tại thời điểm sinh viên ghi danh.
+Inflation rate: Tỷ lệ lạm phát tại thời điểm sinh viên ghi danh.
+GDP: Tổng sản phẩm quốc nội (GDP) tại thời điểm sinh viên ghi danh.
+Target: Mục tiêu (label) của mô hình, có thể là "Dropout" (bỏ học) hoặc "Graduate" (tốt nghiệp).

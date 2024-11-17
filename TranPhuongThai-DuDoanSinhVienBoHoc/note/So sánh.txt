@@ -1,0 +1,101 @@
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# import pickle
+# from sklearn.model_selection import train_test_split
+# from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+# from sklearn.linear_model import LogisticRegression
+# from sklearn.svm import SVC
+# from sklearn.neighbors import KNeighborsClassifier
+# from sklearn.naive_bayes import GaussianNB
+# from sklearn.tree import DecisionTreeClassifier
+# from sklearn.metrics import accuracy_score, roc_curve, auc, precision_recall_curve, confusion_matrix, ConfusionMatrixDisplay
+
+# # Đọc dữ liệu từ file CSV
+# data = pd.read_csv('data/student_dropout_data.csv')
+
+# # Xác định đặc trưng và nhãn
+# X = data[['age', 'gpa', 'attendance_rate', 'study_hours', 'failed_exams']]
+# y = data['dropout']
+
+# # Chia dữ liệu thành tập huấn luyện và tập kiểm tra
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# # Danh sách các mô hình
+# models = {
+#     "Logistic Regression": LogisticRegression(random_state=42),
+#     "K-Nearest Neighbors": KNeighborsClassifier(n_neighbors=5),
+#     "Support Vector Machine": SVC(kernel='linear', probability=True, random_state=42),
+#     "Decision Tree": DecisionTreeClassifier(random_state=42),
+#     "Naive Bayes": GaussianNB(),
+#     "Random Forest": RandomForestClassifier(n_estimators=100, random_state=42),
+#     "Gradient Boosting": GradientBoostingClassifier(random_state=42)
+# }
+
+# # Huấn luyện các mô hình, lưu độ chính xác, dự đoán và xác suất dự đoán
+# accuracies = {}
+# predictions = {}
+# probas = {}
+
+# for model_name, model in models.items():
+#     # Huấn luyện mô hình
+#     model.fit(X_train, y_train)
+    
+#     # Dự đoán trên tập kiểm tra
+#     y_pred = model.predict(X_test)
+#     y_proba = model.predict_proba(X_test)[:, 1] if hasattr(model, "predict_proba") else None
+    
+#     # Lưu độ chính xác và dự đoán
+#     accuracies[model_name] = accuracy_score(y_test, y_pred)
+#     predictions[model_name] = y_pred
+#     if y_proba is not None:
+#         probas[model_name] = y_proba
+    
+#     # Lưu mô hình vào file .pkl
+#     with open(f"{model_name.lower().replace(' ', '_')}_model.pkl", 'wb') as file:
+#         pickle.dump(model, file)
+#     print(f"Mô hình {model_name} đã được lưu vào file '{model_name.lower().replace(' ', '_')}_model.pkl'")
+
+# # 1. Biểu đồ Độ chính xác của các mô hình (Bar Plot)
+# plt.figure(figsize=(10, 5))
+# plt.bar(accuracies.keys(), accuracies.values(), color='skyblue')
+# plt.xlabel('Model')
+# plt.ylabel('Accuracy')
+# plt.title('Comparison of Model Accuracies')
+# plt.xticks(rotation=45)
+# plt.show()
+
+# # 2. Biểu đồ ROC và AUC
+# plt.figure(figsize=(10, 8))
+# for model_name, y_proba in probas.items():
+#     fpr, tpr, _ = roc_curve(y_test, y_proba)
+#     auc_score = auc(fpr, tpr)
+#     plt.plot(fpr, tpr, label=f"{model_name} (AUC = {auc_score:.2f})")
+
+# plt.plot([0, 1], [0, 1], 'k--')
+# plt.xlabel('False Positive Rate')
+# plt.ylabel('True Positive Rate')
+# plt.title('ROC Curve Comparison')
+# plt.legend()
+# plt.show()
+
+# # 3. Biểu Đồ Confusion Matrix cho từng mô hình
+# plt.figure(figsize=(15, 10))
+# for i, (model_name, y_pred) in enumerate(predictions.items()):
+#     plt.subplot(3, 3, i + 1)
+#     cm = confusion_matrix(y_test, y_pred)
+#     disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+#     disp.plot(cmap='Blues', ax=plt.gca(), colorbar=False)
+#     plt.title(f'{model_name} Confusion Matrix')
+# plt.tight_layout()
+# plt.show()
+
+# # 4. Biểu Đồ Precision-Recall
+# plt.figure(figsize=(10, 8))
+# for model_name, y_proba in probas.items():
+#     precision, recall, _ = precision_recall_curve(y_test, y_proba)
+#     plt.plot(recall, precision, label=model_name)
+# plt.xlabel('Recall')
+# plt.ylabel('Precision')
+# plt.title('Precision-Recall Curve Comparison')
+# plt.legend()
+# plt.show()
