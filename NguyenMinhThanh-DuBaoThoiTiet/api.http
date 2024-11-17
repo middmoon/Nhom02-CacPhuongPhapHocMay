@@ -1,0 +1,21 @@
+### predict 
+POST http://127.0.0.1:5011/predict
+Content-Type: application/json
+
+{
+  "province": "Ho Chi Minh City", 
+  "date": "2023-02-20"
+}
+### test 
+GET http://127.0.0.1:5011
+Content-Type: application/json
+
+### test 
+POST http://127.0.0.1:5011/test
+Content-Type: application/json
+
+{
+  "province": "Ho Chi Minh City", 
+  "date": "2023-02-20"
+}
+
