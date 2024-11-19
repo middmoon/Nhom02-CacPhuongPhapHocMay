@@ -9,13 +9,19 @@ TranPhuongThai-DuDoanSinhVienNghiHoc
 
 
 NguyenMinhThanh-DuBaoThoiTiet
-
 - Tải model về và giải nén (1.7GB) cho vào thư muc NguyenMinhThanh-DuBaoThoiTiet: https://drive.google.com/file/d/1SwdtNh2MFh1TO8wcKDewr4d-ILnhIjEc/view?usp=sharing
 - Cài đặt các thư viện Flask và CORS
 - chạy cmd: python app.py
+- api: File api.http
+POST http://127.0.0.1:5011/predict
+Content-Type: application/json
+
+{
+  "province": "Ho Chi Minh City", 
+  "date": "2023-02-20"
+}
 
 NguyenCongAnhTu-NhanDienDeoKhauTrang
-
 
 Bước 1: Tạo và chạy máy ảo
 python -m venv venv
