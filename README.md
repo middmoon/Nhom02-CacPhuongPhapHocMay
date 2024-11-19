@@ -15,6 +15,8 @@ NguyenMinhThanh-DuBaoTHoiTiet
 - chạy cmd: python app.py
 
 NguyenCongAnhTu-NhanDienDeoKhauTrang
+
+
 Bước 1: Tạo và chạy máy ảo
 python -m venv venv
 venv\Scripts\activate
